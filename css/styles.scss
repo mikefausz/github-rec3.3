@@ -1,0 +1,43 @@
+$blue: #4078c0;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 13px / 1.4 Helvetica, arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.content {
+  padding-top: 20px;
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.content:after {
+  display: table;
+    clear: both;
+    content: "";
+
+}
+
+ul {
+  padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.border-top {
+  border-top: 1px #e5e5e5 solid;
+}
+
+.border-bottom {
+  border-bottom: 1px #e5e5e5 solid;
+}
+
+@import "header";
+@import "aside";
+@import "main";
+@import "footer";
