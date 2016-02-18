@@ -8,67 +8,8 @@ var setUserHtml = function() {
     $('.stat-box').find('.following').text(userData.following);
 }
 
-var getJoinDateStr = function() {
-  var joinDateStr = "";
-  var joinDate = new Date(userData.created_at);
-  var joinMonth = joinDate.getMonth();
-  switch(joinMonth) {
-    case 0:
-      joinDateStr += "January ";
-      break;
-    case 1:
-      joinDateStr += "February ";
-      break;
-    case 2:
-      joinDateStr += "March ";
-      break;
-    case 3:
-      joinDateStr += "April ";
-      break;
-    case 4:
-      joinDateStr += "May ";
-      break;
-    case 5:
-      joinDateStr += "June ";
-      break;
-    case 6:
-      joinDateStr += "July ";
-      break;
-    case 7:
-      joinDateStr += "August ";
-      break;
-    case 8:
-      joinDateStr += "September ";
-      break;
-    case 9:
-      joinDateStr += "October ";
-      break;
-    case 10:
-      joinDateStr += "November ";
-      break;
-    case 11:
-      joinDateStr += "December ";
-      break;
-    default:
-      joinDateStr += "Unknown ";
-  }
-  joinDateStr += joinDate.getDate() + ", " + joinDate.getFullYear();
-  return joinDateStr;
-}
-
-var sortRepoData = function() {
-  var sortedRepos= _.sortBy(repos, 'updated_at').reverse();
-  var repoData = repos.map(function(repo) {
-    return {
-      name: repo.name,
-      description: repo.description,
-      updated_at: repo.updated_at,
-      language: repo.language,
-      stargazers_count: repo.stargazers_count,
-      forks_count: repo.forks_count,
-    };
-  });
-  return repoData;
+var sortReposByUpdate = function(rawRepos) {
+  return _.sortBy(rawRepos, 'updated_at').reverse();
 }
 
 var setRepoHtml = function(repoData) {
@@ -123,51 +64,40 @@ var $repobox = $('.repos');
 var $activitytab = $('#activity-tab');
 var $activityfeed = $('.activity-feed');
 $activitytab.click(function(event) {
-    event.preventDefault();
-    $activitytab.addClass('current-tab');
-    $activityfeed.removeClass('hidden');
-    $repobox.addClass('hidden');
-    $repotab.removeClass('current-tab');
+  event.preventDefault();
+  $activitytab.addClass('current-tab');
+  $activityfeed.removeClass('hidden');
+  $repobox.addClass('hidden');
+  $repotab.removeClass('current-tab');
 });
 
 $repotab.click(function(event) {
-    event.preventDefault();
-    $repotab.addClass('current-tab');
-    $repobox.removeClass('hidden');
-    $activitytab.removeClass('current-tab');
-    $activityfeed.addClass('hidden');
+  event.preventDefault();
+  $repotab.addClass('current-tab');
+  $repobox.removeClass('hidden');
+  $activitytab.removeClass('current-tab');
+  $activityfeed.addClass('hidden');
 });
+
 var $all = $('.all-filter');
 var $pub = $('.public-filter');
 var $priv = $('.private-filter');
-var $sources = $('sources-filter');
+var $sources = $('.sources-filter');
 var $forks = $('.forks-filter');
 var $mirrors = $('.mirrors-filter');
 
-$('.all-filter').click(function(event) {
+$all.click(function(event) {
   event.preventDefault();
-  if(!$all.hasClass('current-filter')) {
-    $all.addClass('current-filter');
-    $pub.removeClass('current-filter');
-    $priv.removeClass('current-filter');
-    $sources.removeClass('current-filter');
-    $forks.removeClass('current-filter');
-    $mirrors.removeClass('current-filter');
-    setRepoHtml(sortRepoData());
-  }
+  $all.addClass('current-filter');
+  $all.siblings().removeClass('current-filter');
+  setRepoHtml(sortReposByUpdate(repos));
 });
 
-$('.public-filter').click(function(event) {
+$pub.click(function(event) {
   event.preventDefault();
-  if(!$pub.hasClass('current-filter')) {
-    $all.removeClass('current-filter');
-    $pub.addClass('current-filter');
-    $priv.removeClass('current-filter');
-    $sources.removeClass('current-filter');
-    $forks.removeClass('current-filter');
-    $mirrors.removeClass('current-filter');
-    setRepoHtml(getPublicRepos());
-  }
+  $pub.addClass('current-filter');
+  $pub.siblings().removeClass('current-filter');
+  setRepoHtml(sortReposByUpdate(getPublicRepos()));
 });
 
 var getPublicRepos = function() {
@@ -177,17 +107,11 @@ var getPublicRepos = function() {
   return publicRepos;
 };
 
-$('.private-filter').click(function(event) {
+$priv.click(function(event) {
   event.preventDefault();
-  if(!$priv.hasClass('current-filter')) {
-    $all.removeClass('current-filter');
-    $pub.removeClass('current-filter');
-    $priv.addClass('current-filter');
-    $sources.removeClass('current-filter');
-    $forks.removeClass('current-filter');
-    $mirrors.removeClass('current-filter');
-    setRepoHtml(getPrivateRepos());
-  }
+  $priv.addClass('current-filter');
+  $priv.siblings().removeClass('current-filter');
+  setRepoHtml(sortReposByUpdate(getPrivateRepos()));
 });
 
 var getPrivateRepos = function() {
@@ -196,55 +120,40 @@ var getPrivateRepos = function() {
   });
   return privateRepos;
 };
-$('.sources-filter').click(function(event) {
+
+$sources.click(function(event) {
   event.preventDefault();
-  if(!$sources.hasClass('current-filter')) {
-    $all.removeClass('current-filter');
-    $pub.removeClass('current-filter');
-    $priv.removeClass('current-filter');
-    $sources.addClass('current-filter');
-    $forks.removeClass('current-filter');
-    $mirrors.removeClass('current-filter');
-    setRepoHtml(sortReposBySource());
-  }
+  $sources.addClass('current-filter');
+  $sources.siblings().removeClass('current-filter');
+  setRepoHtml(sortReposBySource());
 });
 
 var sortReposBySource = function() {
   return _.sortBy(repos, 'language');
 };
 
-$('.forks-filter').click(function(event) {
+$forks.click(function(event) {
   event.preventDefault();
-  if(!$forks.hasClass('current-filter')) {
-    $all.removeClass('current-filter');
-    $pub.removeClass('current-filter');
-    $priv.removeClass('current-filter');
-    $sources.removeClass('current-filter');
-    $forks.addClass('current-filter');
-    $mirrors.removeClass('current-filter');
-    setRepoHtml(sortReposByForks());
-  }
+  $forks.addClass('current-filter');
+  $forks.siblings().removeClass('current-filter');
+  setRepoHtml(sortReposByForks());
 });
 
 var sortReposByForks = function() {
   return _.sortBy(repos, 'forks_count').reverse();
 };
+
 $('.mirrors-filter').click(function(event) {
   event.preventDefault();
-  if(!$mirrors.hasClass('current-filter')) {
-    $all.removeClass('current-filter');
-    $pub.removeClass('current-filter');
-    $priv.removeClass('current-filter');
-    $sources.removeClass('current-filter');
-    $forks.removeClass('current-filter');
     $mirrors.addClass('current-filter');
+    $mirrors.siblings().removeClass('current-filter');
     setRepoHtml(sortReposByMirrors());
-  }
 });
 
 var sortReposByMirrors = function() {
   return _.sortBy(repos, 'stargazers_count').reverse();
 };
+
 setUserHtml();
-setRepoHtml(sortRepoData());
+setRepoHtml(sortReposByUpdate(repos));
 setActivityHtml(activities);
