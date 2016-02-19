@@ -39,35 +39,34 @@ ul {
   margin-right: auto;
   margin-left: auto; }
 
-.nav-bar .octicon-mark-github.mega-octicon {
-  vertical-align: middle;
-  margin-right: 10px;
-  color: #333;
-  white-space: nowrap;
-  font-size: 28px; }
-
-.nav-bar .search-bar {
-  display: inline-block;
-  width: 360px;
-  margin-right: 15px; }
-  .nav-bar .search-bar input[type=text] {
-    display: inline-block;
-    width: 100%;
-    min-height: 22px;
-    padding: 3px 5px;
-    font-size: 12px;
-    line-height: 16px; }
-
-.nav-bar ul {
-  display: inline-block; }
-
-.nav-bar li {
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 20px;
+.nav-bar {
   color: #333; }
+  .nav-bar .octicon-mark-github.mega-octicon {
+    vertical-align: middle;
+    margin-right: 10px;
+    white-space: nowrap;
+    font-size: 28px; }
+  .nav-bar .search-bar {
+    display: inline-block;
+    width: 360px;
+    margin-right: 15px; }
+    .nav-bar .search-bar input[type=text] {
+      display: inline-block;
+      width: 100%;
+      min-height: 22px;
+      padding: 3px 5px;
+      font-size: 12px;
+      line-height: 16px; }
+  .nav-bar ul {
+    display: inline-block; }
+  .nav-bar li {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px; }
+  .nav-bar a:hover {
+    color: #4078c0; }
 
 .nav-right {
   float: right; }
@@ -137,21 +136,22 @@ li {
   text-align: center;
   height: 48px;
   padding: 12px 0; }
+  .stat-box a:hover {
+    color: #4078c0; }
 
 .stat {
   float: left;
   width: 33.333%;
   font-size: 11px;
-  color: #4078c0;
+  color: #767676;
   text-align: center; }
   .stat .stat-num {
     font-size: 28px;
     font-weight: bold;
+    color: #4078c0;
     line-height: 1;
     display: block;
     text-align: center; }
-  .stat .stat-name {
-    color: #767676; }
 
 h3 {
   margin-top: 15px;
@@ -187,12 +187,12 @@ h3 {
     color: #666;
     text-decoration: none;
     background-color: transparent;
-    border: 1px solid transparent;
-    border-bottom: 0; }
+    border: 1px solid transparent; }
   .main-nav .current-tab {
     border: solid lightgrey 1px;
-    border-radius: 3px;
-    border-bottom: none; }
+    border-radius: 3px 3px 0 0;
+    border-bottom: 3px solid white;
+    margin-bottom: -2px; }
   .main-nav span {
     margin-right: 4px; }
 
@@ -252,9 +252,10 @@ h3 {
   font-size: 14px;
   list-style: none;
   padding: 0; }
+  .repo-filter a {
+    color: #4078c0; }
   .repo-filter li {
     display: inline-block;
-    color: #4078c0;
     margin-left: 11px;
     padding: 0; }
     .repo-filter li:hover {
@@ -291,16 +292,21 @@ h3 {
     font-size: 12px;
     font-weight: bold;
     color: #888; }
+  .repo-list .repo-stat-item {
+    margin-left: 8px; }
+    .repo-list .repo-stat-item:hover {
+      color: #4078c0; }
   .repo-list a {
     display: inline-block;
-    margin-left: 8px;
     color: #888;
     text-decoration: none; }
   .repo-list .repo-list-name {
-    margin: 0 0 8px;
+    margin: 0;
     font-size: 20px;
     line-height: 1.2;
     color: #4078c0; }
+    .repo-list .repo-list-name:hover {
+      text-decoration: underline; }
   .repo-list .repo-desc {
     max-width: 550px;
     margin-top: 8px;
@@ -318,13 +324,16 @@ h3 {
 
 .activity-feed {
   color: #666; }
+  .activity-feed a:hover {
+    text-decoration: underline; }
 
 .activity-list {
   position: relative;
   padding: 0 0 1em 45px;
   overflow: hidden; }
   .activity-list:first-child {
-    border-top: none; }
+    border-top: none;
+    margin-top: -15px; }
 
 .activity-text {
   padding: 1em 0 0;
@@ -374,7 +383,8 @@ h3 {
 
 .push .head {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  color: #4078c0; }
+  color: #4078c0;
+  margin: 0 4px; }
 
 footer {
   position: relative;
@@ -402,7 +412,9 @@ footer {
     line-height: 16px;
     font-size: 12px;
     color: #4078c0; }
-  footer span {
+  footer a li:hover {
+    text-decoration: underline; }
+  footer .mega-octicon {
     position: absolute;
     top: 47px;
     left: 50%;
@@ -410,3 +422,5 @@ footer {
     font-size: 24px;
     color: #ccc;
     vertical-align: middle; }
+    footer .mega-octicon:hover {
+      color: #bbb; }

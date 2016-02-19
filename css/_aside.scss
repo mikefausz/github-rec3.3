@@ -58,22 +58,23 @@ li {
   text-align: center;
   height: 48px;
   padding: 12px 0;
+  a:hover {
+    color: $blue;
+  }
 }
 .stat {
     float: left;
     width: 33.333%;
     font-size: 11px;
-    color: $blue;
+    color: #767676;
     text-align: center;
     .stat-num {
       font-size: 28px;
       font-weight: bold;
+      color: $blue;
       line-height: 1;
       display: block;
       text-align: center;
-    }
-    .stat-name {
-      color: #767676;
     }
   }
 

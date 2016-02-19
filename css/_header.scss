@@ -10,10 +10,10 @@
 }
 
 .nav-bar {
+  color: #333;
   .octicon-mark-github.mega-octicon {
     vertical-align: middle;
     margin-right: 10px;
-    color: #333;
     white-space: nowrap;
     font-size: 28px;
   }
@@ -39,7 +39,9 @@
     font-size: 13px;
     font-weight: bold;
     line-height: 20px;
-    color: #333;
+  }
+  a:hover {
+    color: $blue;
   }
 }
 

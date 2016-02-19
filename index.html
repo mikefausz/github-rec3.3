@@ -16,25 +16,25 @@
           <input type="text" name="firstname" placeholder="Search Github">
         </div>
         <ul class="nav-buttons">
-          <li>Pull Requests</li>
-          <li>Issues</li>
-          <li>Gist</li>
+          <a href="#"><li>Pull Requests</li></a>
+          <a href="#"><li>Issues</li></a>
+          <a href="#"><li>Gist</li></a>
         </ul>
         <ul class="nav-right">
-          <li>
+          <a href="#"><li>
             <span class="octicon octicon-plus"></span>
             <span class="octicon octicon-triangle-down"></span>
-          </li>
-          <li>
+          </li></a></a>
+          <a href="#"><li>
             <img class="avatar-small"src="https://avatars0.githubusercontent.com/u/16927182?v=3&s=40" alt="" />
             <span class="octicon octicon-triangle-down"></span>
-          </li>
+          </li></a>
         </ul>
       </div>
     </header>
     <div class="content">
       <aside class="user-profile">
-        <img class="avatar" src="https://avatars2.githubusercontent.com/u/16927182?v=3&s=460" alt="" />
+        <!-- avatar prepended here -->
         <div class="prof-box name-box">
           <h1>Full Name</h1>
           <h2>username</h2>
@@ -48,18 +48,6 @@
             <span class="date-joined">Joined on Date</span></li>
         </ul>
           <div class="prof-box stat-box border-top border-bottom">
-            <a class="stat">
-              <div class="stat-num followers">1</div>
-              <div class="stat-name">Followers</div>
-            </a>
-            <a class="stat">
-              <div class="stat-num starred">0</div>
-              <div class="stat-name">Starred</div>
-            </a>
-            <a class="stat">
-              <div class="stat-num following">1</div>
-              <div class="stat-name">Following</div>
-            </a>
           </div>
         <div class="prof-box org-box">
           <h3>Organizations</h3>
@@ -77,12 +65,12 @@
             <input type="text" name="repo-search" placeholder="Find a repository...">
             <a href="#" class="searchButton">Search</a>
             <ul class="repo-filter">
-              <li class="all-filter current-filter">All</li>
-              <li class="public-filter">Public</li>
-              <li class="private-filter">Private</li>
-              <li class="sources-filter">Sources</li>
-              <li class="forks-filter">Forks</li>
-              <li class="mirrors-filter">Mirrors</li>
+              <a href="#" class="all-filter current-filter"><li>All</li></a>
+              <a href="#" class="public-filter"><li>Public</li></a>
+              <a href="#" class="private-filter"><li>Private</li></a>
+              <a href="#" class="sources-filter"><li>Sources</li></a>
+              <a href="#" class="forks-filter"><li>Forks</li></a>
+              <a href="#" class="mirrors-filter"><li>Mirrors</li></a>
             </ul>
             <a href="#" class="new-repo-button"><span class="octicon octicon-repo"></span>New</a>
           </nav>
@@ -96,58 +84,32 @@
               <h3 class="repo-list-name">Repo Listing Name</h3>
               <p class="repo-desc">Description</p>
               <p class="repo-last-up">When Updated</p>
-
             </div>
           </div>
         </div>
         <div class="activity-feed hidden">
-          <!-- <div class="activity-list border-top">
-            <div class="activity-text">
-              <span class="username">mikefausz</span> created branch <span class="branch-name">master</span> at <span class="file-path">mikefausz/js-fun-practice2.4</span> <span class="time-ago">14 hours ago</span>
-              <span class="octicon octicon-git-branch activity-icon"></span>
-            </div>
-          </div>
-          <div class="activity-list border-top">
-            <div class="activity-text">
-              <span class="username">mikefausz</span> created repository <span class="file-path">mikefausz/js-fun-practice2.4</span> <span class="time-ago">14 hours ago</span>
-              <span class="octicon octicon-repo activity-icon"></span>
-            </div>
-          </div>
-          <div class="activity-list border-top push">
-            <div class="activity-text">
-              <span class="time-ago">14 hours ago</span>
-              <div class="title">
-                <span class="username">mikefausz</span> created repository <span class="file-path">mikefausz/js-fun-practice2.4</span>
-              </div>
-              <div class="details">
-                <img class="avatar" src="https://avatars2.githubusercontent.com/u/16927182?v=3&s=60" alt="" />
-                <span class="octicon octicon-mark-github"></span>
-                <span class="head">e0bde6e</span> Added a few variables and mixins. Streamlined code.
-              </div>
-              <span class="mega-octicon octicon-git-commit activity-icon"></span>
-            </div>
-          </div> -->
+          <!-- activities inserted here -->
         </div>
       </div>
     </div>
     <footer class="container">
       <ul>
         <li id="copyright">© 2016 GitHub, Inc.</li>
-        <li>Terms</li>
-        <li>Privacy</li>
-        <li>Security</li>
-        <li>Contact</li>
-        <li>Help</li>
+        <a href="#"><li>Terms</li></a>
+        <a href="#"><li>Privacy</li></a>
+        <a href="#"><li>Security</li></a>
+        <a href="#"><li>Contact</li></a>
+        <a href="#"><li>Help</li></a>
       </ul>
-      <span class="mega-octicon octicon-mark-github"></span>
+      <a href="#"><span class="mega-octicon octicon-mark-github"></span></a>
       <ul class="right">
-        <li>Status</li>
-        <li>API</li>
-        <li>Training</li>
-        <li>Shop</li>
-        <li>Blog</li>
-        <li>About</li>
-        <li>Pricing</li>
+        <a href="#"><li>Status</li></a>
+        <a href="#"><li>API</li></a>
+        <a href="#"><li>Training</li></a>
+        <a href="#"><li>Shop</li></a>
+        <a href="#"><li>Blog</li></a>
+        <a href="#"><li>About</li></a>
+        <a href="#"><li>Pricing</li></a>
       </ul>
     </footer>
     <script src="bower_components/underscore/underscore.js"></script>

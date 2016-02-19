@@ -21,8 +21,10 @@
     border: 1px solid transparent;
   }
   .current-tab {
-    border: solid lightgrey 1px;border-radius: 3px 3px 0 0;
-    border-bottom: white;
+    border: solid lightgrey 1px;
+    border-radius: 3px 3px 0 0;
+    border-bottom: 3px solid white;
+    margin-bottom: -2px;
   }
   span {
         margin-right: 4px;
@@ -97,9 +99,11 @@
   font-size: 14px;
   list-style: none;
   padding: 0;
+  a {
+    color: $blue;
+  }
   li {
     display: inline-block;
-    color: $blue;
     margin-left: 11px;
     padding: 0;
     &:hover {
@@ -145,17 +149,25 @@
     font-weight: bold;
     color: #888;
   }
+  .repo-stat-item {
+    margin-left: 8px;
+    &:hover {
+      color: $blue;
+    }
+  }
   a {
     display: inline-block;
-    margin-left: 8px;
     color: #888;
     text-decoration: none;
   }
   .repo-list-name {
-    margin: 0 0 8px;
+    margin: 0;
     font-size: 20px;
     line-height: 1.2;
     color: $blue;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .repo-desc {
     max-width: 550px;
@@ -178,6 +190,9 @@
 
 .activity-feed {
   color: #666;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .activity-list {
@@ -186,6 +201,7 @@
   overflow: hidden;
   &:first-child {
     border-top: none;
+    margin-top: -15px;
   }
 }
 
@@ -244,5 +260,6 @@
   .head {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: $blue;
+    margin: 0 4px;
   }
 }
