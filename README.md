@@ -31,9 +31,13 @@ Your assignment should look like your github profile:
 * Use the Octicons
 
 Use your Github JSON data here:
+
 **User:** https://api.github.com/users/yourusername
+
 **Repos:** https://api.github.com/users/yourusername/repos
+
 **Activity:** https://api.github.com/users/yourusername/events
+
 **Orgs:** https://api.github.com/users/yourusername/orgs
 
 ####Normal Mode
